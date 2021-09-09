@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	bin_distances
+	1
+Select jobs to execute...
+
+[Tue Jan 12 18:01:04 2021]
+rule bin_distances:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M-H]-_no_metlin.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/binned_distances_[M-H]-_qtof_precursor_yes.txt
+    jobid: 0
+    wildcards: adduct=[M-H]-, instrument=qtof, precursor_status=precursor_yes
+
+Terminating processes on user request, this might take some time.
+[Tue Jan 12 18:01:41 2021]
+Error in rule bin_distances:
+    jobid: 0
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/binned_distances_[M-H]-_qtof_precursor_yes.txt
+
+RuleException:
+CalledProcessError in line 38 of /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/rictuar/anaconda3/bin/python3.8 /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/scripts/tmpyiu89j3o.bin_distances.py' died with <Signals.SIGINT: 2>.
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2317, in run_wrapper
+  File "/home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile", line 38, in __rule_bin_distances
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 566, in _callback
+  File "/home/rictuar/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 552, in cached_or_run
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2348, in run_wrapper
+Complete log: /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/log/2021-01-12T180104.415774.snakemake.log

@@ -1,0 +1,28 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	remove_inchikeys_in_metlin
+	1
+Select jobs to execute...
+
+[Tue Jan 12 16:28:20 2021]
+rule remove_inchikeys_in_metlin:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M-H]-.txt, /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/metlin_inchikey_[M-H]-.inchi
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M-H]-_no_metlin.txt
+    jobid: 0
+    wildcards: adduct=[M-H]-, instrument=qtof, precursor_status=precursor_yes
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 13 of /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile:
+Job Missing files after 5 seconds:
+/home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M-H]-_no_metlin.txt
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 0 completed successfully, but some output files are missing. 0
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 581, in handle_job_success
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 252, in handle_job_success
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/log/2021-01-12T162820.376595.snakemake.log

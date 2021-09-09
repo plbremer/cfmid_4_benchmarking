@@ -1,0 +1,3 @@
+Building DAG of jobs...
+MissingRuleException:
+No rule to produce /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/cfmid-collision-column_added_[M-H]-_qtof_precursor_yes.txt (if you use input functions make sure that they don't raise unexpected exceptions).

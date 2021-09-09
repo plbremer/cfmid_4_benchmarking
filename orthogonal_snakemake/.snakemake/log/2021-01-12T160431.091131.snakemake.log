@@ -1,0 +1,3 @@
+Building DAG of jobs...
+MissingRuleException:
+No rule to produce /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M-H]-.txt (if you use input functions make sure that they don't raise unexpected exceptions).

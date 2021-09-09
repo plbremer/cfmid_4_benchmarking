@@ -1,0 +1,90 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	append_class_feature
+	1	bin_distances
+	1	choose_best_cfmid_score
+	4	create_heatmap_visual
+	4	create_pandas_dataframe_for_heatmap
+	1	create_pareto_plot
+	1	make_cfmid_energy_dash_collision_energy
+	1	remove_inchikeys_in_metlin
+	1	replace_collision_energy_with_norm
+	1	subset
+	16
+Select jobs to execute...
+
+[Tue Jan 12 19:11:51 2021]
+rule subset:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/starting_files/overall_similarity_result_dot_product_[M-H]-.csv
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/starting_files/similarity_subset_nist20_only_hcd_only_[M-H]-.txt
+    jobid: 8
+    wildcards: adduct=[M-H]-, instrument=hcd, precursor_status=precursor_yes
+
+[Tue Jan 12 19:11:52 2021]
+Finished job 8.
+1 of 16 steps (6%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:11:52 2021]
+rule remove_inchikeys_in_metlin:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/starting_files/similarity_subset_nist20_only_hcd_only_[M-H]-.txt, /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/starting_files/metlin_inchikey_[M-H]-.inchi
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/starting_files/similarity_subset_nist20_only_hcd_only_[M-H]-_no_metlin.txt
+    jobid: 7
+    wildcards: adduct=[M-H]-, instrument=hcd, precursor_status=precursor_yes
+
+[Tue Jan 12 19:11:53 2021]
+Finished job 7.
+2 of 16 steps (12%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:11:53 2021]
+rule bin_distances:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/starting_files/similarity_subset_nist20_only_hcd_only_[M-H]-_no_metlin.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/binned_distances_[M-H]-_hcd_precursor_yes.txt
+    jobid: 6
+    wildcards: adduct=[M-H]-, instrument=hcd, precursor_status=precursor_yes
+
+[Tue Jan 12 19:12:00 2021]
+Finished job 6.
+3 of 16 steps (19%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:12:00 2021]
+rule choose_best_cfmid_score:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/binned_distances_[M-H]-_hcd_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/best_cfmid_match_[M-H]-_hcd_precursor_yes.txt
+    jobid: 5
+    wildcards: adduct=[M-H]-, instrument=hcd, precursor_status=precursor_yes
+
+[Tue Jan 12 19:12:07 2021]
+Finished job 5.
+4 of 16 steps (25%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:12:07 2021]
+rule append_class_feature:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/best_cfmid_match_[M-H]-_hcd_precursor_yes.txt, /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/classy_fire_results_csv.csv
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/classes_added_[M-H]-_hcd_precursor_yes.txt
+    jobid: 4
+    wildcards: adduct=[M-H]-, instrument=hcd, precursor_status=precursor_yes
+
+Terminating processes on user request, this might take some time.
+[Tue Jan 12 19:16:05 2021]
+Error in rule append_class_feature:
+    jobid: 4
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/hcd/precursor_yes/classes_added_[M-H]-_hcd_precursor_yes.txt
+
+RuleException:
+CalledProcessError in line 62 of /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/rictuar/anaconda3/bin/python3.8 /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/scripts/tmpzpgsh944.append_class_feature.py' died with <Signals.SIGINT: 2>.
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2317, in run_wrapper
+  File "/home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile", line 62, in __rule_append_class_feature
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 566, in _callback
+  File "/home/rictuar/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 552, in cached_or_run
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2348, in run_wrapper
+Complete log: /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/log/2021-01-12T191151.464559.snakemake.log

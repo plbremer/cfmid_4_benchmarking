@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 5 of /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile:
+Missing input files for rule subset:
+/home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/hcd/precursor_yes/starting_files/overall_similarity_result_dot_product_[M+H]+.csv

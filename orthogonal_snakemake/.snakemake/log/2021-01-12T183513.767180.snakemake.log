@@ -1,0 +1,21 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	make_cfmid_energy_dash_collision_energy
+	1
+Select jobs to execute...
+
+[Tue Jan 12 18:35:13 2021]
+rule make_cfmid_energy_dash_collision_energy:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/collision_modified_[M-H]-_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/cfmid-collision_[M-H]-_qtof_precursor_yes.txt
+    jobid: 0
+    wildcards: adduct=[M-H]-, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 18:35:14 2021]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/log/2021-01-12T183513.767180.snakemake.log

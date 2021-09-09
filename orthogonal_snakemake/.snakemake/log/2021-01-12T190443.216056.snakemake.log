@@ -1,0 +1,43 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	append_class_feature
+	1	bin_distances
+	1	choose_best_cfmid_score
+	4	create_heatmap_visual
+	4	create_pandas_dataframe_for_heatmap
+	1	create_pareto_plot
+	1	make_cfmid_energy_dash_collision_energy
+	1	remove_inchikeys_in_metlin
+	1	replace_collision_energy_with_norm
+	1	subset
+	16
+Select jobs to execute...
+
+[Tue Jan 12 19:04:43 2021]
+rule subset:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/itft/precursor_yes/starting_files/overall_similarity_result_dot_product_[M-H]-.csv
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/itft/precursor_yes/starting_files/similarity_subset_nist20_only_itft_only_[M-H]-.txt
+    jobid: 8
+    wildcards: adduct=[M-H]-, instrument=itft, precursor_status=precursor_yes
+
+[Tue Jan 12 19:04:43 2021]
+Error in rule subset:
+    jobid: 8
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/itft/precursor_yes/starting_files/similarity_subset_nist20_only_itft_only_[M-H]-.txt
+
+RuleException:
+CalledProcessError in line 15 of /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/rictuar/anaconda3/bin/python3.8 /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/scripts/tmpwjfq0446.make_starting_subset.py' returned non-zero exit status 1.
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2317, in run_wrapper
+  File "/home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile", line 15, in __rule_subset
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 566, in _callback
+  File "/home/rictuar/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 552, in cached_or_run
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2348, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/log/2021-01-12T190443.216056.snakemake.log

@@ -1,0 +1,21 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	bin_distances
+	1
+Select jobs to execute...
+
+[Tue Jan 12 18:01:42 2021]
+rule bin_distances:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M-H]-_no_metlin.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/binned_distances_[M-H]-_qtof_precursor_yes.txt
+    jobid: 0
+    wildcards: adduct=[M-H]-, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 18:01:43 2021]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/log/2021-01-12T180142.721678.snakemake.log

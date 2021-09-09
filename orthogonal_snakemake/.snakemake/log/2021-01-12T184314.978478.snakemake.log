@@ -1,0 +1,34 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	create_pareto_plot
+	1
+Select jobs to execute...
+
+[Tue Jan 12 18:43:15 2021]
+rule create_pareto_plot:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/cfmid-collision_[M-H]-_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/output_files/pareto_plot_[M-H]-_qtof_precursor_yes.html
+    jobid: 0
+    wildcards: adduct=[M-H]-, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 18:43:15 2021]
+Error in rule create_pareto_plot:
+    jobid: 0
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/output_files/pareto_plot_[M-H]-_qtof_precursor_yes.html
+
+RuleException:
+CalledProcessError in line 91 of /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile:
+Command 'set -euo pipefail;  /home/rictuar/anaconda3/bin/python3.8 /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/scripts/tmptis_gc_i.create_pareto_plot.py' returned non-zero exit status 1.
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2317, in run_wrapper
+  File "/home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/Snakefile", line 91, in __rule_create_pareto_plot
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 566, in _callback
+  File "/home/rictuar/anaconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 552, in cached_or_run
+  File "/home/rictuar/anaconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2348, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/log/2021-01-12T184314.978478.snakemake.log

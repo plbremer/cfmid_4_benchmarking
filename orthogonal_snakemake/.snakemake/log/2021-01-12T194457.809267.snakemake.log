@@ -1,0 +1,210 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	append_class_feature
+	1	bin_distances
+	1	choose_best_cfmid_score
+	4	create_heatmap_visual
+	4	create_pandas_dataframe_for_heatmap
+	1	create_pareto_plot
+	1	make_cfmid_energy_dash_collision_energy
+	1	remove_inchikeys_in_metlin
+	1	replace_collision_energy_with_norm
+	1	subset
+	16
+Select jobs to execute...
+
+[Tue Jan 12 19:44:57 2021]
+rule subset:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/starting_files/overall_similarity_result_dot_product_[M+H]+.csv
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M+H]+.txt
+    jobid: 8
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 19:44:59 2021]
+Finished job 8.
+1 of 16 steps (6%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:44:59 2021]
+rule remove_inchikeys_in_metlin:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M+H]+.txt, /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/starting_files/metlin_inchikey_[M+H]+.inchi
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M+H]+_no_metlin.txt
+    jobid: 7
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 19:44:59 2021]
+Finished job 7.
+2 of 16 steps (12%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:44:59 2021]
+rule bin_distances:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/starting_files/similarity_subset_nist20_only_qtof_only_[M+H]+_no_metlin.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/binned_distances_[M+H]+_qtof_precursor_yes.txt
+    jobid: 6
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 19:44:59 2021]
+Finished job 6.
+3 of 16 steps (19%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:44:59 2021]
+rule choose_best_cfmid_score:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/binned_distances_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/best_cfmid_match_[M+H]+_qtof_precursor_yes.txt
+    jobid: 5
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 19:45:00 2021]
+Finished job 5.
+4 of 16 steps (25%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:00 2021]
+rule append_class_feature:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/best_cfmid_match_[M+H]+_qtof_precursor_yes.txt, /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M-H]-/qtof/precursor_yes/starting_files/classy_fire_results_csv.csv
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/classes_added_[M+H]+_qtof_precursor_yes.txt
+    jobid: 4
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 19:45:02 2021]
+Finished job 4.
+5 of 16 steps (31%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:02 2021]
+rule replace_collision_energy_with_norm:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/classes_added_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/collision_modified_[M+H]+_qtof_precursor_yes.txt
+    jobid: 3
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 19:45:03 2021]
+Finished job 3.
+6 of 16 steps (38%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:03 2021]
+rule make_cfmid_energy_dash_collision_energy:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/collision_modified_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/cfmid-collision_[M+H]+_qtof_precursor_yes.txt
+    jobid: 2
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 19:45:04 2021]
+Finished job 2.
+7 of 16 steps (44%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:04 2021]
+rule create_pandas_dataframe_for_heatmap:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/cfmid-collision_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/heatmap_panda_Superclass_[M+H]+_qtof_precursor_yes.txt
+    jobid: 12
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes, feature=Superclass
+
+[Tue Jan 12 19:45:04 2021]
+Finished job 12.
+8 of 16 steps (50%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:04 2021]
+rule create_pandas_dataframe_for_heatmap:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/cfmid-collision_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/heatmap_panda_Class_[M+H]+_qtof_precursor_yes.txt
+    jobid: 1
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes, feature=Class
+
+[Tue Jan 12 19:45:05 2021]
+Finished job 1.
+9 of 16 steps (56%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:05 2021]
+rule create_heatmap_visual:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/heatmap_panda_Class_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/output_files/heatmap_Class_[M+H]+_qtof_precursor_yes.png
+    jobid: 0
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes, feature=Class
+
+[Tue Jan 12 19:45:06 2021]
+Finished job 0.
+10 of 16 steps (62%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:06 2021]
+rule create_pandas_dataframe_for_heatmap:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/cfmid-collision_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/heatmap_panda_cfmid-collision_[M+H]+_qtof_precursor_yes.txt
+    jobid: 15
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes, feature=cfmid-collision
+
+[Tue Jan 12 19:45:07 2021]
+Finished job 15.
+11 of 16 steps (69%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:07 2021]
+rule create_pareto_plot:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/cfmid-collision_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/output_files/pareto_plot_[M+H]+_qtof_precursor_yes.html
+    jobid: 13
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes
+
+[Tue Jan 12 19:45:07 2021]
+Finished job 13.
+12 of 16 steps (75%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:07 2021]
+rule create_pandas_dataframe_for_heatmap:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/cfmid-collision_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/heatmap_panda_Collision_energy_[M+H]+_qtof_precursor_yes.txt
+    jobid: 10
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes, feature=Collision_energy
+
+[Tue Jan 12 19:45:08 2021]
+Finished job 10.
+13 of 16 steps (81%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:08 2021]
+rule create_heatmap_visual:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/heatmap_panda_Collision_energy_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/output_files/heatmap_Collision_energy_[M+H]+_qtof_precursor_yes.png
+    jobid: 9
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes, feature=Collision_energy
+
+[Tue Jan 12 19:45:10 2021]
+Finished job 9.
+14 of 16 steps (88%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:10 2021]
+rule create_heatmap_visual:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/heatmap_panda_cfmid-collision_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/output_files/heatmap_cfmid-collision_[M+H]+_qtof_precursor_yes.png
+    jobid: 14
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes, feature=cfmid-collision
+
+[Tue Jan 12 19:45:12 2021]
+Finished job 14.
+15 of 16 steps (94%) done
+Select jobs to execute...
+
+[Tue Jan 12 19:45:12 2021]
+rule create_heatmap_visual:
+    input: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/heatmap_panda_Superclass_[M+H]+_qtof_precursor_yes.txt
+    output: /home/rictuar/coding_projects/fiehn_work/text_files/orthogonal_snakemake/[M+H]+/qtof/precursor_yes/output_files/heatmap_Superclass_[M+H]+_qtof_precursor_yes.png
+    jobid: 11
+    wildcards: adduct=[M+H]+, instrument=qtof, precursor_status=precursor_yes, feature=Superclass
+
+[Tue Jan 12 19:45:13 2021]
+Finished job 11.
+16 of 16 steps (100%) done
+Complete log: /home/rictuar/coding_projects/fiehn_work/small_scripts/orthogonal_snakemake/.snakemake/log/2021-01-12T194457.809267.snakemake.log
